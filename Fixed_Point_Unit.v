@@ -50,26 +50,61 @@ module Fixed_Point_Unit
     reg [64 - 1 : 0] product;
     reg product_ready;
 
-    reg     [15 : 0] multiplierCircuitInput1;
-    reg     [15 : 0] multiplierCircuitInput2;
-    wire    [31 : 0] multiplierCircuitResult;
+    wire    [15 : 0] A1 = operand_1[15:0];
+    wire    [15 : 0] A2 = operand_1[31:16];
+    wire    [15 : 0] B1 = operand_2[15:0];
+    wire    [15 : 0] B2 = operand_2[31:16];
 
-    Multiplier multiplier_circuit
-    (
-        .operand_1(multiplierCircuitInput1),
-        .operand_2(multiplierCircuitInput2),
-        .product(multiplierCircuitResult)
-    );
+    wire    [31 : 0] P1;
+    wire    [31 : 0] P2;
+    wire    [31 : 0] P3;
+    wire    [31 : 0] P4;
 
     reg     [31 : 0] partialProduct1;
     reg     [31 : 0] partialProduct2;
     reg     [31 : 0] partialProduct3;
     reg     [31 : 0] partialProduct4;
 
-        /*
-         *  Describe Your 32-bit Multiplier Circuit Here.
-         */
-         
+    Multiplier multiplier1
+    (
+        .operand_1(A1),
+        .operand_2(B1),
+        .product(P1)
+    );
+
+    Multiplier multiplier2
+    (
+        .operand_1(A1),
+        .operand_2(B2),
+        .product(P2)
+    );
+
+    Multiplier multiplier3
+    (
+        .operand_1(A2),
+        .operand_2(B1),
+        .product(P3)
+    );
+
+    Multiplier multiplier4
+    (
+        .operand_1(A2),
+        .operand_2(B2),
+        .product(P4)
+    );
+
+    // 32-bit Multiplier Circuit
+    always @(*) begin
+        // Combine partial products
+        partialProduct1 = P1;
+        partialProduct2 = P2 << 16;
+        partialProduct3 = P3 << 16;
+        partialProduct4 = P4 << 32;
+        
+        // Sum the partial products
+        product = partialProduct1 + partialProduct2 + partialProduct3 + partialProduct4;
+        product_ready = 1;
+    end
 endmodule
 
 module Multiplier
