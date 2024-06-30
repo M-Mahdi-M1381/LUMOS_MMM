@@ -40,9 +40,6 @@ module Fixed_Point_Unit
     reg [WIDTH - 1 : 0] root;
     reg root_ready;
 
-        /*
-         *  Describe Your Square Root Calculator Circuit Here.
-         */
 
     // ------------------ //
     // Multiplier Circuit //
@@ -95,7 +92,7 @@ module Fixed_Point_Unit
 
     // 32-bit Multiplier Circuit
     always @(*) begin
-        // Combine partial products
+
         partialProduct1 = P1;
         partialProduct2 = P2 << 16;
         partialProduct3 = P3 << 16;
