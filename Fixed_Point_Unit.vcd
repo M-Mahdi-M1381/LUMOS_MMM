@@ -1,5 +1,5 @@
 $date
-	Tue Jun 04 00:34:50 2024
+	Tue Jul 02 21:12:00 2024
 $end
 $version
 	Icarus Verilog
@@ -22,81 +22,85 @@ $var wire 32 ) operand_1 [31:0] $end
 $var wire 32 * operand_2 [31:0] $end
 $var wire 2 + operation [1:0] $end
 $var wire 1 ( reset $end
-$var wire 32 , multiplierCircuitResult [31:0] $end
-$var parameter 32 - FBITS $end
-$var parameter 32 . ITER $end
-$var parameter 32 / WIDTH $end
-$var reg 34 0 ac [33:0] $end
-$var reg 34 1 ac_next [33:0] $end
-$var reg 5 2 i [4:0] $end
-$var reg 3 3 multiplication_stage [2:0] $end
-$var reg 16 4 multiplierCircuitInput1 [15:0] $end
-$var reg 16 5 multiplierCircuitInput2 [15:0] $end
-$var reg 3 6 next_multiplication_stage [2:0] $end
-$var reg 2 7 next_square_root_stage [1:0] $end
-$var reg 32 8 partialProduct1 [31:0] $end
-$var reg 32 9 partialProduct2 [31:0] $end
-$var reg 32 : partialProduct3 [31:0] $end
-$var reg 32 ; partialProduct4 [31:0] $end
-$var reg 64 < product [63:0] $end
-$var reg 1 = product_ready $end
-$var reg 32 > q [31:0] $end
-$var reg 32 ? q_next [31:0] $end
+$var wire 32 , P4 [31:0] $end
+$var wire 32 - P3 [31:0] $end
+$var wire 32 . P2 [31:0] $end
+$var wire 32 / P1 [31:0] $end
+$var wire 16 0 B2 [15:0] $end
+$var wire 16 1 B1 [15:0] $end
+$var wire 16 2 A2 [15:0] $end
+$var wire 16 3 A1 [15:0] $end
+$var parameter 32 4 FBITS $end
+$var parameter 32 5 WIDTH $end
+$var reg 32 6 partialProduct1 [31:0] $end
+$var reg 32 7 partialProduct2 [31:0] $end
+$var reg 32 8 partialProduct3 [31:0] $end
+$var reg 32 9 partialProduct4 [31:0] $end
+$var reg 64 : product [63:0] $end
+$var reg 1 ; product_ready $end
 $var reg 1 " ready $end
-$var reg 32 @ result [31:0] $end
-$var reg 32 A root [31:0] $end
-$var reg 1 B root_ready $end
-$var reg 1 C sqrt_busy $end
-$var reg 1 D sqrt_start $end
-$var reg 2 E square_root_stage [1:0] $end
-$var reg 34 F test_res [33:0] $end
-$var reg 32 G x [31:0] $end
-$var reg 32 H x_next [31:0] $end
-$scope module multiplier_circuit $end
-$var wire 16 I operand_1 [15:0] $end
-$var wire 16 J operand_2 [15:0] $end
-$var reg 32 K product [31:0] $end
+$var reg 32 < result [31:0] $end
+$var reg 32 = root [31:0] $end
+$var reg 1 > root_ready $end
+$scope module multiplier1 $end
+$var wire 16 ? operand_1 [15:0] $end
+$var wire 16 @ operand_2 [15:0] $end
+$var reg 32 A product [31:0] $end
+$upscope $end
+$scope module multiplier2 $end
+$var wire 16 B operand_1 [15:0] $end
+$var wire 16 C operand_2 [15:0] $end
+$var reg 32 D product [31:0] $end
+$upscope $end
+$scope module multiplier3 $end
+$var wire 16 E operand_1 [15:0] $end
+$var wire 16 F operand_2 [15:0] $end
+$var reg 32 G product [31:0] $end
+$upscope $end
+$scope module multiplier4 $end
+$var wire 16 H operand_1 [15:0] $end
+$var wire 16 I operand_2 [15:0] $end
+$var reg 32 J product [31:0] $end
 $upscope $end
 $upscope $end
 $upscope $end
 $enddefinitions $end
 $comment Show the parameter values. $end
 $dumpall
-b100000 /
-b10101 .
-b1010 -
+b100000 5
+b1010 4
 b100 #
 $end
 #0
 $dumpvars
-bx K
-bz J
-bz I
+bx J
+bx I
 bx H
 bx G
 bx F
-b0 E
-0D
-xC
-0B
+bx E
+bx D
+bx C
+bx B
 bx A
-bz @
+bx @
 bx ?
-bx >
-0=
+x>
+bx =
 bx <
-bz ;
-bz :
-bz 9
-bz 8
-b1 7
-b1 6
-bz 5
-bz 4
-b0 3
-b0 2
+x;
+bx :
+bx 9
+bx 8
+bx 7
+bx 6
+bx 3
+bx 2
 bx 1
 bx 0
+bx /
+bx .
+bx -
 bx ,
 bx +
 bx *
@@ -107,7 +111,7 @@ bx &
 bx %
 1$
 0"
-bz !
+bx !
 $end
 #2
 0$
@@ -129,10 +133,35 @@ $end
 #18
 0$
 #20
-b1 6
+1;
+b111010111010000000000000 :
+b0 9
+b0 8
+b0 7
+b111010111010000000000000 6
+b111010111010000000000000 /
+b111010111010000000000000 A
+b0 .
+b0 D
+b0 -
+b0 G
+b0 ,
+b0 J
 1"
 b1111011000000 !
-b1111011000000 @
+b1111011000000 <
+b1000001000000 1
+b1000001000000 @
+b1000001000000 F
+b0 0
+b0 C
+b0 I
+b111010000000 3
+b111010000000 ?
+b111010000000 B
+b0 2
+b0 E
+b0 H
 b0 '
 b0 +
 b1000001000000 &
@@ -143,10 +172,33 @@ b111010000000 )
 #22
 0$
 #24
-b1 6
+bx :
+bx0000000000000000 8
+bx0000000000000000 7
+bx 6
+bx /
+bx A
+bx .
+bx D
+bx -
+bx G
+bx ,
+bx J
 0"
 bz !
+bz <
+bz 1
 bz @
+bz F
+bz 0
+bz C
+bz I
+bz 3
+bz ?
+bz B
+bz 2
+bz E
+bz H
 bz '
 bz +
 bz &
@@ -157,10 +209,33 @@ bz )
 #26
 0$
 #28
-b1 6
+b10101110000000000000000 :
+b0 8
+b0 7
+b10101110000000000000000 6
+b10101110000000000000000 /
+b10101110000000000000000 A
+b0 .
+b0 D
+b0 -
+b0 G
+b0 ,
+b0 J
 1"
 b100010000000 !
-b100010000000 @
+b100010000000 <
+b11000000000 1
+b11000000000 @
+b11000000000 F
+b0 0
+b0 C
+b0 I
+b111010000000 3
+b111010000000 ?
+b111010000000 B
+b0 2
+b0 E
+b0 H
 b1 '
 b1 +
 b11000000000 &
@@ -171,10 +246,33 @@ b111010000000 )
 #30
 0$
 #32
-b1 6
+bx :
+bx0000000000000000 8
+bx0000000000000000 7
+bx 6
+bx /
+bx A
+bx .
+bx D
+bx -
+bx G
+bx ,
+bx J
 0"
 bz !
+bz <
+bz 1
 bz @
+bz F
+bz 0
+bz C
+bz I
+bz 3
+bz ?
+bz B
+bz 2
+bz E
+bz H
 bz '
 bz +
 bz &
@@ -185,9 +283,33 @@ bz )
 #34
 0$
 #36
-b1 6
-bx !
-bx @
+b10101110000000000000000 :
+b0 8
+b0 7
+b10101110000000000000000 6
+b10101110000000000000000 /
+b10101110000000000000000 A
+b0 .
+b0 D
+b0 -
+b0 G
+b0 ,
+b0 J
+1"
+b1010111000000 !
+b1010111000000 <
+b11000000000 1
+b11000000000 @
+b11000000000 F
+b0 0
+b0 C
+b0 I
+b111010000000 3
+b111010000000 ?
+b111010000000 B
+b0 2
+b0 E
+b0 H
 b10 '
 b10 +
 b11000000000 &
@@ -198,77 +320,33 @@ b111010000000 )
 #38
 0$
 #40
-b10101110000000000000000 ,
-b10101110000000000000000 K
-b10101110000000000000000 8
-b11000000000 5
-b11000000000 J
-b111010000000 4
-b111010000000 I
-b10 6
-b1 3
-1$
-#42
-0$
-#44
-b0 ,
-b0 K
-b0 9
-b0 4
-b0 I
-b11 6
-b10 3
-1$
-#46
-0$
-#48
-b0 :
-b0 5
-b0 J
-b111010000000 4
-b111010000000 I
-b100 6
-b11 3
-1$
-#50
-0$
-#52
-b0 ;
-b0 4
-b0 I
-b101 6
-b100 3
-1$
-#54
-0$
-#56
-1"
-b1010111000000 !
-b1010111000000 @
-1=
-b10101110000000000000000 <
-b0 6
-b101 3
-1$
-#58
-0$
-#60
+bx :
+bx0000000000000000 8
+bx0000000000000000 7
+bx 6
+bx /
+bx A
+bx .
+bx D
+bx -
+bx G
 bx ,
-bx K
-bz ;
-bz :
-bz 9
-bz 8
-bz 5
-bz J
-bz 4
-bz I
-0=
-b1 6
-b0 3
+bx J
 0"
 bz !
+bz <
+bz 1
 bz @
+bz F
+bz 0
+bz C
+bz I
+bz 3
+bz ?
+bz B
+bz 2
+bz E
+bz H
 bz '
 bz +
 bz &
@@ -276,329 +354,116 @@ bz *
 bz %
 bz )
 1$
-#62
+#42
 0$
-#64
-b1 6
+#44
+x"
 bx !
-bx @
+bx <
+b1100110000000000 3
+b1100110000000000 ?
+b1100110000000000 B
+b1 2
+b1 E
+b1 H
 b11 '
 b11 +
 b11100110000000000 %
 b11100110000000000 )
 1$
-#66
+#46
 0$
-#68
-1D
-b10 7
-b1 E
+#48
 1$
-#70
+#50
 0$
-#72
-0D
-b10 7
-b0 ?
-b0 1
-b111001100000000000000 H
-b1111111111111111111111111111111111 F
-b10 E
-b0 0
-b1110011000000000000 G
-b0 >
-1C
+#52
 1$
-#74
+#54
 0$
-#76
-b11100110000000000000000 H
-b111001100000000000000 G
-b1 2
-1$
-#78
-0$
-#80
-b1110011000000000000000000 H
-b11100110000000000000000 G
-b10 2
-1$
-#82
-0$
-#84
-b111001100000000000000000000 H
-b1110011000000000000000000 G
-b11 2
-1$
-#86
-0$
-#88
-b11100110000000000000000000000 H
-b111001100000000000000000000 G
-b100 2
-1$
-#90
-0$
-#92
-b1110011000000000000000000000000 H
-b11100110000000000000000000000 G
-b101 2
-1$
-#94
-0$
-#96
-b1 1
-b11001100000000000000000000000000 H
-b1110011000000000000000000000000 G
-b110 2
-1$
-#98
-0$
-#100
-b1 ?
-b11 1
-b110000000000000000000000000000 H
-b0 F
-b1 0
-b11001100000000000000000000000000 G
-b111 2
-1$
-#102
-0$
-#104
-b10 ?
-b1100 1
-b11000000000000000000000000000000 H
-b1111111111111111111111111111111110 F
-b1 >
-b11 0
-b110000000000000000000000000000 G
-b1000 2
-1$
-#106
-0$
-#108
-b101 ?
-b1111 1
-b0 H
-b11 F
-b10 >
-b1100 0
-b11000000000000000000000000000000 G
-b1001 2
-1$
-#110
-0$
-#112
-b1010 ?
-b111100 1
-b1111111111111111111111111111111010 F
-b101 >
-b1111 0
-b0 G
-b1010 2
-1$
-#114
-0$
-#116
-b10101 ?
-b1001100 1
-b10011 F
-b1010 >
-b111100 0
-b1011 2
-1$
-#118
-0$
-#120
-b101010 ?
-b100110000 1
-b1111111111111111111111111111110111 F
-b10101 >
-b1001100 0
-b1100 2
-1$
-#122
-0$
-#124
-b1010101 ?
-b1000011100 1
-b10000111 F
-b101010 >
-b100110000 0
-b1101 2
-1$
-#126
-0$
-#128
-b10101011 ?
-b1100011100 1
-b11000111 F
-b1010101 >
-b1000011100 0
-b1110 2
-1$
-#130
-0$
-#132
-b101010111 ?
-b110111100 1
-b1101111 F
-b10101011 >
-b1100011100 0
-b1111 2
-1$
-#134
-0$
-#136
-b1010101110 ?
-b11011110000 1
-b1111111111111111111111110001011111 F
-b101010111 >
-b110111100 0
-b10000 2
-1$
-#138
-0$
-#140
-b10101011100 ?
-b1101111000000 1
-b1111111111111111111111110000110111 F
-b1010101110 >
-b11011110000 0
-b10001 2
-1$
-#142
-0$
-#144
-b101010111001 ?
-b1100100111100 1
-b11001001111 F
-b10101011100 >
-b1101111000000 0
-b10010 2
-1$
-#146
-0$
-#148
-b1010101110010 ?
-b110010011110000 1
-b1111111111111111111110111001010111 F
-b101010111001 >
-b1100100111100 0
-b10011 2
-1$
-#150
-0$
-#152
-b10101011100101 ?
-b11110010011100 1
-b111100100111 F
-b1010101110010 >
-b110010011110000 0
-b10100 2
-1$
-#154
-0$
-#156
-1"
-b10101011100101 !
-b10101011100101 @
-b10101011100101 A
-1B
-0C
-1$
-#158
-0$
-#160
-1$
-#162
-0$
-#164
-1$
-#166
-0$
-#168
-b1 7
-b1 6
-0B
-b0 E
+#56
 0"
 bz !
-bz @
+bz <
+bz 3
+bz ?
+bz B
+bz 2
+bz E
+bz H
 bz '
 bz +
 bz %
 bz )
 1$
-#170
+#58
 0$
-#172
+#60
 1$
-#174
+#62
 0$
-#176
+#64
 1$
-#178
+#66
 0$
-#180
+#68
 1$
-#182
+#70
 0$
-#184
+#72
 1$
-#186
+#74
 0$
-#188
+#76
 1$
-#190
+#78
 0$
-#192
+#80
 1$
-#194
+#82
 0$
-#196
+#84
 1$
-#198
+#86
 0$
-#200
+#88
 1$
-#202
+#90
 0$
-#204
+#92
 1$
-#206
+#94
 0$
-#208
+#96
 $dumpoff
-bx K
 bx J
 bx I
 bx H
 bx G
 bx F
 bx E
-xD
-xC
-xB
+bx D
+bx C
+bx B
 bx A
 bx @
 bx ?
-bx >
-x=
+x>
+bx =
 bx <
-bx ;
+x;
 bx :
 bx 9
 bx 8
 bx 7
 bx 6
-bx 5
-bx 4
 bx 3
 bx 2
 bx 1
 bx 0
+bx /
+bx .
+bx -
 bx ,
 bx +
 bx *
