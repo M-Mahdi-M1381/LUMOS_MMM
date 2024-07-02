@@ -1,4 +1,4 @@
-<img src="https://github.com/IUST-Computer-Organization/.github/blob/main/images/CompOrg_orange.png" alt="Image" width="85" height="85" style="vertical-align:middle"> LUMOS RISC-V
+ LUMOS RISC-V
 =================================
 > Light Utilization with Multicycle Operational Stages (LUMOS) RISC-V Processor Core
 
