@@ -39,7 +39,90 @@ module Fixed_Point_Unit
     // ------------------- //
     reg [WIDTH - 1 : 0] root;
     reg root_ready;
+    module fixed_point_sqrt #(parameter WIDTH = 32, FBITS = 10) (
+        input wire clk,
+        input wire reset,
+        input wire start,
+        input wire [WIDTH-1:0] radicand,
+        output reg done,
+        output reg [WIDTH-1:0] root
+    );
+        // State definitions
+        typedef enum logic [1:0] {
+            IDLE,
+            CALC,
+            DONE
+        } state_t;
+        state_t state, next_state;
 
+        // Internal variables
+        reg [WIDTH-1:0] radicand_reg;
+        reg [WIDTH-1:0] root_reg;
+        reg [WIDTH-1:0] remainder;
+        reg [WIDTH-1:0] divisor;
+        reg [WIDTH:0] temp; // One bit wider to handle carry
+
+        integer i;
+
+        always @(posedge clk or posedge reset) begin
+            if (reset) begin
+                state <= IDLE;
+                root <= 0;
+                done <= 0;
+                radicand_reg <= 0;
+                root_reg <= 0;
+                remainder <= 0;
+                divisor <= 0;
+            end else begin
+                state <= next_state;
+                case (state)
+                    IDLE: begin
+                        done <= 0;
+                        if (start) begin
+                            radicand_reg <= radicand;
+                            root_reg <= 0;
+                            remainder <= 0;
+                            divisor <= 0;
+                            i <= (WIDTH + FBITS) / 2;
+                        end
+                    end
+
+                    CALC: begin
+                        if (i > 0) begin
+                            remainder = {remainder[WIDTH-3:0], radicand_reg[WIDTH-1:WIDTH-2]};
+                            radicand_reg = {radicand_reg[WIDTH-3:0], 2'b0};
+
+                            divisor = (root_reg << 1) | 1;
+                            temp = {remainder, 1'b0} - divisor;
+
+                            if (temp[WIDTH]) begin
+                                root_reg = root_reg << 1;
+                            end else begin
+                                root_reg = (root_reg << 1) | 1;
+                                remainder = temp[WIDTH-1:0];
+                            end
+
+                            i = i - 1;
+                        end
+                    end
+
+                    DONE: begin
+                        done <= 1;
+                        root <= root_reg;
+                    end
+                endcase
+            end
+        end
+
+        always @(*) begin
+            next_state = state;
+            case (state)
+                IDLE: if (start) next_state = CALC;
+                CALC: if (i == 0) next_state = DONE;
+                DONE: if (!start) next_state = IDLE;
+            endcase
+        end
+    endmodule
 
     // ------------------ //
     // Multiplier Circuit //
