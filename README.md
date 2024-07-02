@@ -79,44 +79,23 @@ The provided Verilog file appears to define a Fixed-Point Unit (FPU) module. Her
 The `Fixed_Point_Unit` module is designed to perform fixed-point arithmetic operations, including addition, subtraction, multiplication, and square root. It uses parameterized bit-widths and relies on additional modules and macros to function correctly. The design separates arithmetic operations into combinational logic with readiness signaling and reset handling to ensure proper operation sequencing.
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<picture>
+    <img 
+        src="https://github.com/M-Mahdi-M1381/LUMOS_MMM/blob/main/Images/1.png"
+    > 
+</picture> 
 
 
 
 <picture>
     <img 
-        alt="The LUMOS microprocessor synthesized with Design Compiler and placed and routed by Cadence Encounter" 
-        src="https://github.com/M-Mahdi-M1381/LUMOS_MMM/blob/main/Images/1.png"
-        width="550" 
-        height="550"
+        src="https://github.com/M-Mahdi-M1381/LUMOS_MMM/blob/main/Images/2.png"
     > 
 </picture> 
 
-</div>
+
+<picture>
+    <img 
+        src="https://github.com/M-Mahdi-M1381/LUMOS_MMM/blob/main/Images/3.png"
+    > 
+</picture> 
