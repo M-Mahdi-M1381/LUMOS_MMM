@@ -4,10 +4,14 @@ Computer Organization - Spring 2024
 ## Iran Univeristy of Science and Technology
 ## Assignment 2: design FPU for LUMOS RISC-V
 
-- Mohammad Mohammad Mahdi Masoumi 400413314
-- Sadegh Aghasi 400411126
+- Mohammad Mahdi Masoumi 400413314
+- Mohammad Sadegh Aghasi 400411126
 - Date:7/2/2024
 
+
+## Introduction
+
+**LUMOS** is a multicycle RISC-V processor that implements a subset of `RV32I` instruction set, designed for educational use in computer organization classes at **Iran University of Science and Technology**. It allows for modular design projects, enabling students to gain hands-on experience with processor architecture.
 ## Report
 
 The provided Verilog file appears to define a Fixed-Point Unit (FPU) module. Here’s a summary of its content and functionality:
@@ -76,44 +80,9 @@ The `Fixed_Point_Unit` module is designed to perform fixed-point arithmetic oper
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-## Introduction
-
-**LUMOS** is a multicycle RISC-V processor that implements a subset of `RV32I` instruction set, designed for educational use in computer organization classes at **Iran University of Science and Technology**. It allows for modular design projects, enabling students to gain hands-on experience with processor architecture.
-
-
 <picture>
     <img 
-        alt="The LUMOS microprocessor synthesized with Design Compiler and placed and routed by Cadence Encounter" 
-        src="https://github.com/IUST-Computer-Organization/LUMOS/blob/main/Images/LUMOS.png"
-        width="550" 
-        height="550"
+        src="https://github.com/M-Mahdi-M1381/LUMOS_MMM/tree/main/Images/1.png"
     > 
 </picture> 
 
