@@ -80,9 +80,43 @@ The `Fixed_Point_Unit` module is designed to perform fixed-point arithmetic oper
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/M-Mahdi-M1381/LUMOS_MMM/tree/main/Images/1.png"  style="vertical-align:middle">
-    <img alt="logo in light mode and dark mode" src="https://github.com/M-Mahdi-M1381/LUMOS_MMM/tree/main/Images/1.png" style="vertical-align:middle">
+    <img 
+        alt="The LUMOS microprocessor synthesized with Design Compiler and placed and routed by Cadence Encounter" 
+        src="https://github.com/M-Mahdi-M1381/LUMOS_MMM/tree/main/Images/1.png"
+        width="550" 
+        height="550"
+    > 
 </picture> 
 
 </div>
