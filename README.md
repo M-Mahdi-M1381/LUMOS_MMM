@@ -81,9 +81,8 @@ The `Fixed_Point_Unit` module is designed to perform fixed-point arithmetic oper
 
 
 <picture>
-    <img 
-        src="https://github.com/M-Mahdi-M1381/LUMOS_MMM/tree/main/Images/1.png"
-    > 
+    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/M-Mahdi-M1381/LUMOS_MMM/tree/main/Images/1.png"  style="vertical-align:middle">
+    <img alt="logo in light mode and dark mode" src="https://github.com/M-Mahdi-M1381/LUMOS_MMM/tree/main/Images/1.png" style="vertical-align:middle">
 </picture> 
 
 </div>
